@@ -4,9 +4,9 @@
 }
 
 :root {
-    --main-color: #0065FC;
-    --main-bg-color: #F2F2F2;
-    --filter-bg-color: #DEEBFF;
+  --main-color: rgb(8, 100, 252);   /* ton bleu exact */
+  --main-bg-color: #F2F2F2;
+  --filter-bg-color: #DEEBFF;
 }
 
 .fa-solid {
@@ -16,6 +16,7 @@
 body {
     display: flex;
     justify-content: center;
+    font-family: 'Raleway', sans-serif;
 }
 
 .main-container {
@@ -165,3 +166,60 @@ a {
 @media (max-width: 767.98px) {
     /* ... */
 }
+
+/* ===== HEADER ===== */
+.site-header{
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  min-height:72px;
+}
+
+.logo{
+  font-weight:800;
+  font-size:1.4rem;
+  letter-spacing:.2px;
+  color:var(--primary);
+}
+.logo-img {
+  height: 30px;   /* réduit un peu la taille */
+  width: auto;
+  display: block;
+}
+
+.main-nav .nav-list{
+  list-style:none;
+  display:flex;
+  gap:32px;
+  margin:0; padding:0;
+}
+
+.nav-link{
+  display:block;
+  padding:22px 0;
+  border-top:3px solid transparent;   /* style desktop maquetté */
+  color: var(--text);
+  transition:color .2s, border-color .2s;
+  font-weight:400;
+}
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--main-color);              /* texte bleu */
+  border-top-color: var(--main-color);   /* ligne bleue */
+  outline: none;
+}
+
+.nav-link.is-active {
+  color: var(--main-color);
+  border-top-color: var(--main-color);
+/*  background:linear-gradient(to bottom, var(--primary-weak), transparent 60%);
+  background-clip:padding-box; */
+}
+
+
