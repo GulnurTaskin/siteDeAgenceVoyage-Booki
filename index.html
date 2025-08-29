@@ -2,107 +2,194 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Booki</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+
+    <!-- Police (Raleway) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Icônes Font Awesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Styles du projet -->
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
+    <!-- Conteneur principal pour centrer le contenu -->
     <div class="main-container">
-        <header class=" site-header">
-             <div class="container header-inner">
-       <a href="#" class="logo" aria-label="Accueil Booki">
-      <img src="images/logo/Booki.png" alt="Booki" class="logo-img">
-    </a>
 
-      <nav class="main-nav" aria-label="Navigation principale">
-        <ul class="nav-list">
-          <li><a class="nav-link" href="#">Hébergements</a></li>
-          <li><a class="nav-link" href="#">Activités</a></li>
-        </ul>
-      </nav>
-          </div>
+  <!-- ========================= HEADER =========================
+         Logo + navigation principale (Hébergements / Activités)
+       ========================================================== -->
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="#" class="logo" aria-label="Accueil Booki">
+                    <img src="images/logo/Booki.png" alt="Booki" class="logo-img" />
+                </a>
+
+                <nav class="main-nav" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <!-- Onglet actif sur “Hébergements” -->
+                        <li><a class="nav-link is-active" href="#">Hébergements</a></li>
+                        <li><a class="nav-link" href="#">Activités</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
-        <main>
-            <div class="hebergements-and-populaires">
-                <section class="hebergements">
 
+ <!-- =========================== MAIN =========================
+         Contenu principal : recherche + sections de la page
+      ========================================================== -->
+        <main id="content">
+
+ <!-- ============ SECTION RECHERCHE ===========================
+           Titre + sous-titre + barre de recherche (3 parties)
+      ========================================================== -->
+            <section class="search-section container">
+                <h1 class="search-title">Trouvez votre hébergement pour des vacances de rêve</h1>
+                <p class="search-subtitle">En plein centre-ville ou en pleine nature</p>
+
+                <!-- Formulaire de recherche (icône / input / bouton) -->
+                <form class="search-form" role="search">
+                    <!-- 1) Icône localisation (bloc gauche) -->
+                    <div class="search-icon" aria-hidden="true">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <!-- 2) Champ texte (ville) -->
+                    <input type="text" class="search-input" placeholder="Marseille, France" aria-label="Ville" />
+
+                    <!-- 3) Bouton : texte (desktop) + loupe (mobile) -->
+                    <button type="submit" class="btn-search">
+                        <span class="btn-text">Rechercher</span>
+                        <i class="fa-solid fa-magnifying-glass btn-icon" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <!-- Filtres (pills : icône + libellé) -->
+                <div class="filters">
+                    <span class="filters-label">Filtres</span>
+
+                    <button class="filter-btn">
+                        <i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>
+                        <span>Économique</span>
+                    </button>
+
+                    <button class="filter-btn">
+                        <i class="fa-solid fa-person" aria-hidden="true"></i>
+                        <span>Familial</span>
+                    </button>
+
+                    <button class="filter-btn">
+                        <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                        <span>Romantique</span>
+                    </button>
+
+                    <button class="filter-btn">
+                        <i class="fa-solid fa-fire-flame-simple" aria-hidden="true"></i>
+                        <span>Nos pépites</span>
+                    </button>
+                </div>
+
+                <!-- Ligne d’info sous les filtres (optionnel) -->
+                <!--
+        <p class="availability">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <span>Plus de 500 logements sont disponibles dans cette ville</span>
+        </p>
+        -->
+            </section>
+
+  <!-- ========== SECTION LISTES (Hébergements + Populaires) ==========
+           Gabarit gardé, contenu “Hébergements” à remplir plus tard
+       ================================================================ -->
+            <section class="hebergements-and-populaires container">
+                <!-- Colonne gauche : Hébergements -->
+                <section class="hebergements">
+                    <!-- TODO: cartes hébergements (6) -->
                 </section>
-                <section class="populaires">
+
+                <!-- Colonne droite : Les plus populaires -->
+                <aside class="populaires">
                     <div class="populaires-title">
                         <h2 class="section-title">Les plus populaires</h2>
                         <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
                     </div>
+
                     <div class="populaires-cards">
                         <a href="#">
                             <article class="card">
-                                <img src="./images/hebergements/emile-guillemot.jpg" alt="Image de la chambre d'hôtel montrant un lit">
+                                <img src="./images/hebergements/emile-guillemot.jpg"
+                                    alt="Image de la chambre d'hôtel montrant un lit" />
                                 <div class="card-content">
                                     <div class="card-txt">
                                         <h3 class="card-title">Hôtel Le soleil du matin</h3>
                                         <p class="card-subtitle">Nuit à partir de 128<span class="euro">€</span></p>
                                     </div>
-                                    <div class="card-rating">
+                                    <div class="card-rating" aria-label="Note de 4 sur 5">
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star neutral-star" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
                                     </div>
                                 </div>
                             </article>
                         </a>
+
                         <a href="#">
                             <article class="card">
-                                <img src="./images/hebergements/aw-creative.jpg" alt="Image de la chambre d'hôtel montrant un lit">
+                                <img src="./images/hebergements/aw-creative.jpg"
+                                    alt="Image de la chambre d'hôtel montrant un lit" />
                                 <div class="card-content">
                                     <div class="card-txt">
                                         <h3 class="card-title">Chambres d’hôtes Au cœur de l’eau</h3>
                                         <p class="card-subtitle">Nuit à partir de 71<span class="euro">€</span></p>
                                     </div>
-                                    <div class="card-rating">
+                                    <div class="card-rating" aria-label="Note de 4 sur 5">
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star neutral-star" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
                                     </div>
                                 </div>
                             </article>
                         </a>
+
                         <a href="#">
                             <article class="card">
-                                <img src="./images/hebergements/febrian-zakaria2.jpg" alt="Image de la chambre d'hôtel montrant un lit">
+                                <img src="./images/hebergements/febrian-zakaria2.jpg"
+                                    alt="Image de la chambre d'hôtel montrant un lit" />
                                 <div class="card-content">
                                     <div class="card-txt">
                                         <h3 class="card-title">Hôtel Bleu et Blanc</h3>
                                         <p class="card-subtitle">Nuit à partir de 68<span class="euro">€</span></p>
                                     </div>
-                                    <div class="card-rating">
+                                    <div class="card-rating" aria-label="Note de 4 sur 5">
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star neutral-star" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
                                     </div>
                                 </div>
                             </article>
                         </a>
                     </div>
-                </section>
-            </div>
+                </aside>
+            </section>
         </main>
-        <footer></footer>
+
+  <!-- ========================= FOOTER =========================
+         À compléter à l’étape footer
+       ========================================================== -->
+        <footer class="site-footer"></footer>
     </div>
 </body>
 

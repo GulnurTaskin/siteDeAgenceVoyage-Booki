@@ -1,22 +1,24 @@
-/****** General ***********/
+/****** Réglages généraux *************************************************/
+:root {
+    --main-color: rgb(8, 100, 252);
+    /* Bleu principal */
+    --main-bg-color: #F2F2F2;
+    /* Gris de fond des blocs */
+    --filter-bg-color: #DEEBFF;
+    /* Bleu très clair (pills filtres) */
+    --section-gap: 32px;
+    /* Rythme vertical global */
+}
+
+/* Police par défaut */
 * {
     font-family: 'Raleway', sans-serif;
 }
 
-:root {
-  --main-color: rgb(8, 100, 252);   /* ton bleu exact */
-  --main-bg-color: #F2F2F2;
-  --filter-bg-color: #DEEBFF;
-}
-
-.fa-solid {
-    color: var(--main-color);
-}
-
+/* Conteneurs */
 body {
     display: flex;
     justify-content: center;
-    font-family: 'Raleway', sans-serif;
 }
 
 .main-container {
@@ -24,6 +26,14 @@ body {
     max-width: 1440px;
     padding: 0 50px;
     box-sizing: border-box;
+}
+
+/* Utilitaire pour aligner l’intérieur des sections */
+.container {
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 0;
+    /* tu utilises déjà main-container pour le padding */
 }
 
 a {
@@ -37,10 +47,10 @@ a {
 }
 
 .card {
-    background-color: white;
+    background: #fff;
     border-radius: 20px;
     padding: 5px;
-    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 3px 15px rgba(0, 0, 0, .1));
 }
 
 .card img {
@@ -55,29 +65,252 @@ a {
     font-weight: 700;
 }
 
+/* Étoile grisée (ex: 4/5) */
 .neutral-star {
-    color: var(--main-bg-color)
+    color: var(--main-bg-color);
 }
 
-/****** Hebergements And Populaires ***********/
+/* Icônes par défaut en bleu (spécifiques peuvent surcharger) */
+.fa-solid {
+    color: var(--main-color);
+}
+
+/****** Header *************************************************************/
+.site-header {
+    background: #fff;
+    border-bottom: none;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 72px;
+}
+
+.logo-img {
+    height: 30px;
+    width: auto;
+    display: block;
+}
+
+/* Navigation principale */
+.main-nav .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 22px 0;
+    border-top: 3px solid transparent;
+    /* Soulignement haut type desktop */
+    color: #111;
+    /* Texte par défaut */
+    transition: color .2s, border-color .2s;
+    font-weight: 400;
+    /* Non gras comme sur la maquette */
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--main-color);
+    border-top-color: var(--main-color);
+    outline: none;
+}
+
+.nav-link.is-active {
+    color: var(--main-color);
+    border-top-color: var(--main-color);
+}
+
+/****** Section Recherche **************************************************/
+/* Espace sous la section pour éviter l’effet “collé” avec le bloc suivant */
+.search-section {
+    margin-top: 32px;
+    padding-bottom: var(--section-gap);
+}
+
+.search-title {
+    margin: 0 0 6px;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.search-subtitle {
+    margin: 0 0 18px;
+    color: #6b6b6b;
+}
+
+/* Barre de recherche (3 parties) */
+.search-form {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 1) Icône localisation (bloc gauche) */
+.search-icon {
+    background: var(--main-bg-color);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon i {
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Surcharge du bleu global */
+
+/* 2) Champ de saisie */
+.search-input {
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    min-width: 220px;
+}
+
+/* 3) Bouton Rechercher */
+.btn-search {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0 12px 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background .2s;
+}
+
+.btn-search:hover {
+    background: #004fdc;
+}
+
+.btn-text {
+    display: inline;
+}
+
+/* Desktop */
+.btn-icon {
+    display: none;
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+    .btn-text {
+        display: none;
+    }
+
+    .btn-icon {
+        display: inline;
+    }
+
+    .btn-search {
+        padding: 14px 18px;
+    }
+}
+
+/* Filtres (pills) */
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    margin-bottom: 14px;
+    /* Air au-dessus et dessous */
+}
+
+.filters-label {
+    font-weight: 600;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 2px solid #e4e4e4;
+    background: #fff;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: .95rem;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.filter-btn i {
+    font-size: .9rem;
+    color: var(--main-color);
+}
+
+.filter-btn:hover,
+.filter-btn.is-active {
+    background: var(--filter-bg-color);
+    border-color: var(--main-color);
+    color: var(--main-color);
+}
+
+/* Ligne d’info sous les filtres (si utilisée) */
+.availability {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5d5d5d;
+    margin-top: 10px;
+    margin-bottom: 24px;
+}
+
+.availability i {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dcdcdc;
+    border-radius: 50%;
+    font-size: .8rem;
+    color: var(--main-color);
+}
+
+/****** Hébergements + Populaires (deux colonnes) *************************/
 .hebergements-and-populaires {
     display: flex;
     justify-content: space-between;
+    margin-top: var(--section-gap);
+    /* Espace au-dessus du bloc gris */
 }
 
-.hebergements-and-populaires section {
-    background-color: var(--main-bg-color);
+.hebergements-and-populaires section,
+.hebergements-and-populaires aside {
+    background: var(--main-bg-color);
     border-radius: 20px;
     padding: 30px;
     box-sizing: border-box;
 }
 
-/****** Hebergements ***********/
+/* Colonne gauche */
 .hebergements {
     width: 65%;
 }
 
-/****** Populaires ***********/
+/* Colonne droite */
 .populaires {
     width: 32%;
 }
@@ -122,14 +355,9 @@ a {
     margin-bottom: 5px;
 }
 
-
-
-
-/* Le code ci-dessous correspond à la version responsive uniquement */
-
-/****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (max-width: 1024px) {
+/****** Responsive *********************************************************/
+/* Tablettes ≤ 1024px */
+@media (max-width:1024px) {
     .hebergements-and-populaires {
         flex-direction: column;
     }
@@ -162,64 +390,7 @@ a {
     }
 }
 
-/* Small devices (phones, less than 768px) */
-@media (max-width: 767.98px) {
-    /* ... */
+/* Mobiles < 768px */
+@media (max-width:767.98px) {
+    /* À compléter lors de l’étape responsive */
 }
-
-/* ===== HEADER ===== */
-.site-header{
-  background:#fff;
-  border-bottom:1px solid #eee;
-}
-
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-  min-height:72px;
-}
-
-.logo{
-  font-weight:800;
-  font-size:1.4rem;
-  letter-spacing:.2px;
-  color:var(--primary);
-}
-.logo-img {
-  height: 30px;   /* réduit un peu la taille */
-  width: auto;
-  display: block;
-}
-
-.main-nav .nav-list{
-  list-style:none;
-  display:flex;
-  gap:32px;
-  margin:0; padding:0;
-}
-
-.nav-link{
-  display:block;
-  padding:22px 0;
-  border-top:3px solid transparent;   /* style desktop maquetté */
-  color: var(--text);
-  transition:color .2s, border-color .2s;
-  font-weight:400;
-}
-.nav-link:hover,
-.nav-link:focus-visible {
-  color: var(--main-color);              /* texte bleu */
-  border-top-color: var(--main-color);   /* ligne bleue */
-  outline: none;
-}
-
-.nav-link.is-active {
-  color: var(--main-color);
-  border-top-color: var(--main-color);
-/*  background:linear-gradient(to bottom, var(--primary-weak), transparent 60%);
-  background-clip:padding-box; */
-}
-
-
